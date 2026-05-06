@@ -2,7 +2,7 @@ name: Thursday On-Call Reminder
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 6 * * 4'  # Thursday 9 AM Israel time
+    - cron: '0 6 * * 3'  # Thursday 9 AM Israel time
 jobs:
   notify:
     runs-on: ubuntu-latest
