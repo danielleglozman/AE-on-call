@@ -1,0 +1,14 @@
+name: Sunday On-Call Announcement
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 6 * * 0'  # Sunday 9 AM Israel time
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: pip install requests && python oncall_notify.py
+        env:
+          WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_DATA_TEAM }}
+          WEEK_OFFSET: 0
