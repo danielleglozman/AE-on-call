@@ -18,6 +18,11 @@ def get_oncall():
     return ROTATION[(ROTATION_OFFSET + weeks_elapsed) % len(ROTATION)]
 
 name, user_id = get_oncall()
+name, user_id = get_oncall()
+print(f"Sending for: {name} ({user_id})")  # ← add this
+requests.post(os.environ["WEBHOOK_URL"], json={
+    "text": f":rotating_light: *On-call this week:* <@{user_id}>"
+})
 requests.post(os.environ["WEBHOOK_URL"], json={
     "text": f":rotating_light: *On-call this week:* <@{user_id}>"
 })
