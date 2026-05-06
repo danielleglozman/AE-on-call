@@ -1,7 +1,8 @@
 name: Daily On-Call Notification
 on:
+  workflow_dispatch:  # ← add this line
   schedule:
-    - cron: '0 6 * * *'  # 6:00 UTC = 9:00 AM Israel time (IDT, UTC+3)
+    - cron: '0 6 * * *'
 jobs:
   notify:
     runs-on: ubuntu-latest
