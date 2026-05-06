@@ -2,7 +2,7 @@ name: Sunday On-Call Announcement
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 6 * * 0'  # Sunday 9 AM Israel time
+    - cron: '0 6 * * 3'  # Sunday 9 AM Israel time
 jobs:
   notify:
     runs-on: ubuntu-latest
