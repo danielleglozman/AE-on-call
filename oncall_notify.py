@@ -18,7 +18,6 @@ def get_oncall():
     return ROTATION[(ROTATION_OFFSET + weeks_elapsed) % len(ROTATION)]
 
 name, user_id = get_oncall()
-print(f"Sending for: {name} ({user_id})")
 requests.post(os.environ["WEBHOOK_URL"], json={
     "blocks": [
         {
