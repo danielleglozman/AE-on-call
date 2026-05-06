@@ -13,19 +13,18 @@ ROTATION = [
 ROTATION_START = date(2026, 5, 3)
 ROTATION_OFFSET = 5
 
-def get_oncall():
-    weeks_elapsed = (date.today() - ROTATION_START).days // 7
+def get_oncall(week_offset=0):
+    weeks_elapsed = (date.today() - ROTATION_START).days // 7 + week_offset
     return ROTATION[(ROTATION_OFFSET + weeks_elapsed) % len(ROTATION)]
 
-name, user_id = get_oncall()
+week_offset = int(os.environ.get("WEEK_OFFSET", "0"))
+name, user_id = get_oncall(week_offset)
+message = (
+    f":calendar: *Heads up! On-call next week:* <@{user_id}|{name.lower()}>"
+    if week_offset == 1
+    else f":rotating_light: *On-call this week:* <@{user_id}|{name.lower()}>"
+)
+
 requests.post(os.environ["WEBHOOK_URL"], json={
-    "blocks": [
-        {
-            "type": "section",
-            "text": {
-                "type": "mrkdwn",
-                "text": f":rotating_light: *On-call this week:* <@{user_id}>"
-            }
-        }
-    ]
+    "blocks": [{"type": "section", "text": {"type": "mrkdwn", "text": message}}]
 })
