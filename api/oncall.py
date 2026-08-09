@@ -4,7 +4,6 @@ import json
 
 ROTATION = [
     ("Danielle", "U0AA92U6746"),
-    ("Michael",  "U087P3ZGTNZ"),
     ("Omer",     "U0AA6FVB3T7"),
     ("Or",       "U0A2L1S6RS5"),
     ("Shira",    "U09Q8LTGB6F"),
