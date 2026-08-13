@@ -10,7 +10,7 @@ ROTATION = [
     ("Yuval",    "U0AD9805RJT"),
 ]
 ROTATION_START = date(2026, 5, 3)
-ROTATION_OFFSET = 3
+ROTATION_OFFSET = 0
 
 def get_oncall():
     weeks_elapsed = (date.today() - ROTATION_START).days // 7
