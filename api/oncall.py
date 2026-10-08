@@ -6,7 +6,6 @@ ROTATION = [
     ("Danielle", "U0AA92U6746"),
     ("Omer",     "U0AA6FVB3T7"),
     ("Or",       "U0A2L1S6RS5"),
-    ("Shira",    "U09Q8LTGB6F"),
     ("Yuval",    "U0AD9805RJT"),
 ]
 ROTATION_START = date(2026, 5, 3)
